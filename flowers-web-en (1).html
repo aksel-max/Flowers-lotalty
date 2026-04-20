@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flowers — Fresh flowers for you and your business</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#F5F2E9;
+  --card:#EDE8DC;
+  --text:#0C0A09;
+  --green:#7E8B63;
+  --green2:#A9B08D;
+  --champ:#C6B89E;
+  --white:#FFFFFF;
+  --serif:'Playfair Display',serif;
+  --sans:'DM Sans',sans-serif;
+  --line:rgba(12,10,9,.1);
+  --danger:#c03c3c;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);font-family:var(--sans);color:var(--text);min-height:100vh}
+
+/* ── NAV ── */
+.nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--line);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-logo{font-family:var(--serif);font-size:22px;font-weight:400;letter-spacing:.04em;color:var(--text);text-decoration:none}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{font-size:13px;color:var(--text);opacity:.5;text-decoration:none;letter-spacing:.04em;cursor:pointer;transition:opacity .2s}
+.nav-links a:hover{opacity:1}
+.nav-btn{background:var(--green);color:var(--white);border:none;font-family:var(--sans);font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:10px 22px;cursor:pointer;border-radius:100px;opacity:1!important}
+
+/* ── HERO ── */
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:88vh;max-width:1200px;margin:0 auto;padding:0 40px;gap:60px;align-items:center}
+.hero-text .eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:20px}
+.hero-text h1{font-family:var(--serif);font-size:58px;line-height:1.1;font-weight:400;margin-bottom:24px}
+.hero-text h1 em{font-style:italic;color:var(--green)}
+.hero-text p{font-size:16px;color:var(--text);opacity:.5;line-height:1.7;max-width:420px;margin-bottom:40px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.hero-btn{padding:16px 32px;font-family:var(--sans);font-size:12px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;border-radius:100px;transition:all .2s}
+.hero-btn-primary{background:var(--green);color:var(--white);border:none}
+.hero-btn-primary:hover{opacity:.85}
+.hero-btn-outline{background:transparent;color:var(--text);border:1.5px solid rgba(12,10,9,.2)}
+.hero-btn-outline:hover{border-color:var(--green);color:var(--green)}
+.hero-img{position:relative;height:560px}
+.hero-img-card{position:absolute;border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(12,10,9,.12)}
+.hero-img-card.main{width:320px;height:420px;background:var(--card);top:60px;left:0}
+.hero-img-card.small{width:200px;height:260px;background:#DDD9CE;bottom:20px;right:0}
+.hero-flower-bg{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:80px}
+.hero-pill{position:absolute;background:var(--white);border-radius:100px;padding:10px 18px;display:flex;align-items:center;gap:10px;box-shadow:0 8px 24px rgba(12,10,9,.1)}
+.hero-pill.p1{top:20px;right:20px}
+.hero-pill.p2{bottom:80px;left:-20px}
+.hero-pill-icon{width:32px;height:32px;background:rgba(126,139,99,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px}
+.hero-pill-text{font-size:11px;font-weight:500;color:var(--text)}
+.hero-pill-sub{font-size:10px;color:var(--text);opacity:.4}
+
+/* ── SECTION COMMONS ── */
+.section{max-width:1200px;margin:0 auto;padding:100px 40px}
+.section-eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:16px}
+.section-title{font-family:var(--serif);font-size:40px;font-weight:400;margin-bottom:16px;line-height:1.2}
+.section-sub{font-size:15px;color:var(--text);opacity:.5;line-height:1.7;max-width:520px}
+
+/* ── DIVIDER ── */
+.divider{border:none;border-top:1px solid var(--line);margin:0}
+
+/* ── BUKET GRID ── */
+.buket-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.buket-card{background:var(--card);border-radius:16px;overflow:hidden;cursor:pointer;transition:transform .2s;position:relative}
+.buket-card:hover{transform:translateY(-4px)}
+.buket-card-img{height:260px;display:flex;align-items:center;justify-content:center;font-size:72px;background:var(--card)}
+.buket-card-body{padding:20px}
+.buket-card-name{font-family:var(--serif);font-size:18px;margin-bottom:6px}
+.buket-card-sub{font-size:12px;color:var(--text);opacity:.4;margin-bottom:14px;line-height:1.5}
+.buket-card-price{font-size:13px;font-weight:500;color:var(--green)}
+.buket-card-badge{position:absolute;top:14px;right:14px;background:var(--green);color:var(--white);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:100px}
+
+/* ── ERHVERV SECTION ── */
+.erhverv-section{background:var(--text);color:var(--white)}
+.erhverv-inner{max-width:1200px;margin:0 auto;padding:100px 40px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.erhverv-text .section-eyebrow{color:var(--green)}
+.erhverv-text .section-title{color:var(--text)}
+.erhverv-text .section-sub{color:rgba(12,10,9,.5)}
+.erhverv-features{display:flex;flex-direction:column;gap:24px;margin-top:40px}
+.ef-item{display:flex;gap:16px;align-items:flex-start}
+.ef-icon{width:40px;height:40px;background:rgba(126,139,99,.12);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.ef-text h4{font-size:14px;font-weight:500;color:var(--text);margin-bottom:4px}
+.ef-text p{font-size:13px;color:rgba(12,10,9,.45);line-height:1.6}
+.erhverv-form-box{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:36px}
+.ef-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(12,10,9,.4);margin-bottom:8px;margin-top:20px;display:block}
+.ef-label:first-child{margin-top:0}
+.ef-input{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-family:var(--sans);font-size:14px;color:var(--text);outline:none}
+.ef-input::placeholder{color:rgba(12,10,9,.25)}
+.ef-input:focus{border-color:var(--green)}
+.ef-select{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-family:var(--sans);font-size:14px;color:var(--text);outline:none;cursor:pointer}
+.ef-select option{background:var(--white);color:var(--text)}
+.ef-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ef-days{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.ef-day{padding:8px 12px;border:1px solid var(--line);border-radius:8px;font-size:12px;color:rgba(12,10,9,.4);cursor:pointer;font-family:var(--sans);transition:all .2s}
+.ef-day.on{border-color:var(--green);color:var(--green);background:rgba(126,139,99,.08)}
+.erhverv-submit{width:100%;margin-top:24px;padding:16px;background:var(--green);color:var(--white);border:none;font-family:var(--sans);font-size:12px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;border-radius:12px;transition:opacity .2s}
+.erhverv-submit:hover{opacity:.85}
+
+/* ── BUTIKKER ── */
+.butikker-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.butik-card{background:var(--card);border-radius:16px;padding:24px;cursor:pointer;border:2px solid transparent;transition:all .2s}
+.butik-card:hover{border-color:var(--green)}
+.butik-card.selected{border-color:var(--green);background:rgba(126,139,99,.08)}
+.butik-name{font-size:15px;font-weight:500;margin-bottom:6px}
+.butik-addr{font-size:12px;color:var(--text);opacity:.4;line-height:1.6;margin-bottom:12px}
+.butik-tag{display:inline-block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--green);background:rgba(126,139,99,.1);padding:3px 10px;border-radius:100px}
+
+/* ── PERSONALEKODE ── */
+.rabat-box{background:rgba(126,139,99,.08);border:1px solid rgba(126,139,99,.2);border-radius:16px;padding:28px;margin-top:32px}
+.rabat-box h3{font-family:var(--serif);font-size:20px;margin-bottom:8px}
+.rabat-box p{font-size:13px;color:var(--text);opacity:.5;line-height:1.6;margin-bottom:20px}
+.rabat-code{font-family:var(--sans);font-size:24px;font-weight:500;letter-spacing:.2em;color:var(--green);background:var(--white);border-radius:10px;padding:14px 20px;text-align:center;margin-bottom:16px;border:1px solid rgba(126,139,99,.2)}
+.rabat-steps{display:flex;flex-direction:column;gap:10px}
+.rabat-step{display:flex;gap:12px;align-items:flex-start;font-size:13px;color:var(--text);opacity:.6}
+.rabat-step-num{width:22px;height:22px;background:var(--green);color:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;opacity:1}
+
+/* ── FLOW / MODAL ── */
+.flow-overlay{display:none;position:fixed;inset:0;background:rgba(12,10,9,.5);z-index:200;align-items:flex-end;justify-content:center;padding:0}
+.flow-overlay.open{display:flex}
+.flow-box{background:var(--bg);width:100%;max-width:560px;max-height:90vh;overflow-y:auto;border-radius:24px 24px 0 0;padding:36px 36px 50px}
+.flow-box::-webkit-scrollbar{display:none}
+.flow-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+.flow-header h2{font-family:var(--serif);font-size:24px;font-weight:400}
+.flow-close{width:36px;height:36px;background:var(--card);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--text);opacity:.5}
+.flow-step-indicator{display:flex;gap:6px;margin-bottom:28px}
+.flow-step-dot{height:3px;border-radius:100px;background:var(--line);flex:1;transition:background .3s}
+.flow-step-dot.done{background:var(--green)}
+.fl{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text);opacity:.35;margin-bottom:8px;display:block;margin-top:20px}
+.fl:first-of-type{margin-top:0}
+.fi{width:100%;border:none;border-bottom:1.5px solid var(--line);background:transparent;font-family:var(--sans);font-size:15px;color:var(--text);padding:10px 0;outline:none}
+.fi:focus{border-color:var(--green)}
+.fi-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.style-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
+.style-opt{background:var(--card);border-radius:12px;padding:16px;cursor:pointer;border:2px solid transparent;transition:all .2s}
+.style-opt:hover{border-color:var(--green2)}
+.style-opt.selected{border-color:var(--green);background:rgba(126,139,99,.08)}
+.style-opt-emoji{font-size:26px;margin-bottom:8px}
+.style-opt-name{font-size:13px;font-weight:500;margin-bottom:3px}
+.style-opt-desc{font-size:11px;color:var(--text);opacity:.4;line-height:1.4}
+.price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:8px}
+.price-opt{background:var(--card);border-radius:12px;padding:14px 8px;text-align:center;cursor:pointer;border:2px solid transparent;transition:all .2s}
+.price-opt:hover{border-color:var(--green2)}
+.price-opt.selected{border-color:var(--green);background:rgba(126,139,99,.08)}
+.price-opt-amt{font-size:18px;font-weight:500;color:var(--text)}
+.price-opt-kr{font-size:10px;color:var(--text);opacity:.4;letter-spacing:.06em}
+.date-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.date-chip{padding:8px 14px;background:var(--card);border-radius:100px;font-size:12px;cursor:pointer;border:1.5px solid transparent;transition:all .2s}
+.date-chip:hover{border-color:var(--green2)}
+.date-chip.selected{border-color:var(--green);color:var(--green);background:rgba(126,139,99,.08)}
+.time-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.time-chip{padding:8px 14px;background:var(--card);border-radius:100px;font-size:12px;cursor:pointer;border:1.5px solid transparent;transition:all .2s}
+.time-chip:hover{border-color:var(--green2)}
+.time-chip.selected{border-color:var(--green);color:var(--green);background:rgba(126,139,99,.08)}
+.flow-btn{width:100%;margin-top:28px;padding:16px;background:var(--green);color:var(--white);border:none;font-family:var(--sans);font-size:12px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;border-radius:12px;transition:opacity .2s}
+.flow-btn:hover{opacity:.85}
+.flow-btn-back{width:100%;margin-top:10px;padding:14px;background:transparent;color:var(--text);border:1.5px solid var(--line);font-family:var(--sans);font-size:12px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;border-radius:12px;opacity:.5}
+.flow-summary{background:var(--card);border-radius:14px;padding:20px;margin-bottom:24px}
+.fs-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
+.fs-row:last-child{border-bottom:none;font-weight:500}
+.fs-label{font-size:13px;color:var(--text);opacity:.5}
+.fs-val{font-size:13px;color:var(--text)}
+.confirm-box{text-align:center;padding:20px 0}
+.confirm-icon{width:64px;height:64px;background:rgba(126,139,99,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:28px}
+.confirm-title{font-family:var(--serif);font-size:26px;margin-bottom:10px}
+.confirm-sub{font-size:14px;color:var(--text);opacity:.5;line-height:1.6;max-width:340px;margin:0 auto 24px}
+
+/* ── FOOTER ── */
+footer{background:var(--text);color:var(--white);padding:60px 40px}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px}
+.footer-brand{font-family:var(--serif);font-size:20px;margin-bottom:12px}
+.footer-sub{font-size:13px;color:rgba(255,255,255,.35);line-height:1.7}
+.footer-col h4{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:16px}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.5);margin-bottom:10px;text-decoration:none;cursor:pointer}
+.footer-col a:hover{color:var(--white)}
+.footer-bottom{max-width:1200px;margin:40px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,.25)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;padding:60px 24px;gap:40px;min-height:auto}
+  .hero-img{display:none}
+  .hero-text h1{font-size:40px}
+  .buket-grid{grid-template-columns:1fr 1fr}
+  .butikker-grid{grid-template-columns:1fr 1fr}
+  .erhverv-inner{grid-template-columns:1fr;gap:48px;padding:60px 24px}
+  .footer-inner{grid-template-columns:1fr 1fr;gap:40px}
+  .section{padding:60px 24px}
+  .nav{padding:0 24px}
+  .nav-links{gap:16px}
+}
+@media(max-width:600px){
+  .buket-grid{grid-template-columns:1fr}
+  .butikker-grid{grid-template-columns:1fr}
+  .nav-links .nav-hide{display:none}
+  .flow-box{padding:28px 24px 50px}
+  .footer-inner{grid-template-columns:1fr}
+}
+.web-opsig-reason{padding:12px 16px;background:var(--card);border-radius:10px;font-size:14px;color:var(--text);cursor:pointer;border:1.5px solid transparent;transition:all .15s}
+.web-opsig-reason:hover{border-color:var(--green2)}
+.web-opsig-reason.selected{border-color:var(--green);background:rgba(126,139,99,.08);color:var(--green)}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<div style="background:var(--green);color:white;text-align:center;padding:8px;font-family:var(--sans);font-size:11px;letter-spacing:.06em">Prototype · <strong>aksel-max.github.io/flowers-web</strong> · Share this link with colleagues</div>
+<!-- ══ LANGUAGE PICKER SPLASH ══════════════════════════ -->
+<div id="web-lang-splash" style="position:fixed;inset:0;background:var(--bg);z-index:99999;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:40px">
+  <div style="font-family:var(--serif);font-size:48px;margin-bottom:8px;color:var(--text)">Flowers</div>
+  <div style="font-size:14px;color:var(--text);opacity:.4;margin-bottom:56px;letter-spacing:.08em">Fresh flowers for you and your business</div>
+  <div style="display:flex;flex-direction:column;gap:14px;width:100%;max-width:320px">
+    <button onclick="window.location.href='flowers-web.html'" style="width:100%;padding:18px 28px;background:var(--green);color:white;border:none;border-radius:14px;font-family:var(--sans);font-size:15px;font-weight:500;cursor:pointer;display:flex;align-items:center;gap:14px" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+      <span style="font-size:20px">🇩🇰</span><span>Dansk</span>
+    </button>
+    <button onclick="document.getElementById('web-lang-splash').style.display='none'" style="width:100%;padding:18px 28px;background:var(--white);color:var(--text);border:1.5px solid var(--line);border-radius:14px;font-family:var(--sans);font-size:15px;font-weight:500;cursor:pointer;display:flex;align-items:center;gap:14px" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--line)'">
+      <span style="font-size:20px">🇬🇧</span><span>English</span>
+    </button>
+  </div>
+  <div style="margin-top:36px;font-size:11px;color:var(--text);opacity:.2;letter-spacing:.08em">PROTOTYPE · DEMO</div>
+</div>
+
+<div style="background:var(--green);color:white;text-align:center;padding:8px;font-family:var(--sans);font-size:11px;letter-spacing:.06em">Prototype · <strong>aksel-max.github.io/Flowers-lotalty/flowers-web-en.html</strong></div>
+<div style="position:fixed;top:60px;right:16px;z-index:9999"><a href="flowers-web.html" style="font-family:var(--sans);font-size:11px;background:var(--card);padding:6px 12px;border-radius:100px;text-decoration:none;color:var(--text);opacity:.6;border:1px solid var(--line)">🇩🇰 Dansk</a></div>
+<nav class="nav">
+  <a class="nav-logo" href="#">Flowers</a>
+  <div class="nav-links">
+    <a class="nav-hide" onclick="scrollToSection('butikker')">Largees</a>
+    <a class="nav-hide" onclick="scrollToSection('erhverv-section')">Business</a>
+    <a class="nav-hide" onclick="scrollToSection('om')">About us</a>
+    <button class="nav-btn" onclick="openOrderPicker()">Order now</button>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="eyebrow">Fresh flowers · Every day</div>
+    <h1>Flowers that<br>bring <em>joy</em><br>to everyday life</h1>
+    <p>Hand-picked bouquets from our flower shops. For you, your loved ones, your office — picked up in store, always fresh.</p>
+    <div class="hero-btns">
+      <button class="hero-btn hero-btn-primary" onclick="openFlow('private')">Order bouquet</button>
+      <button class="hero-btn hero-btn-outline" onclick="document.getElementById('erhverv-section').scrollIntoView({behavior:'smooth'})">Business agreement ›</button>
+    </div>
+  </div>
+  <div class="hero-img">
+    <div class="hero-img-card main"><div class="hero-flower-bg">🌸</div></div>
+    <div class="hero-img-card small"><div class="hero-flower-bg" style="font-size:48px">🌷</div></div>
+    <div class="hero-pill p1">
+      <div class="hero-pill-icon">🌿</div>
+      <div><div class="hero-pill-text">Fresh today</div><div class="hero-pill-sub">Season's best</div></div>
+    </div>
+    <div class="hero-pill p2">
+      <div class="hero-pill-icon">⭐</div>
+      <div><div class="hero-pill-text">4.9 / 5</div><div class="hero-pill-sub">847 anmeldelser</div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── BUKETTER ── -->
+<section class="section" id="buketter">
+  <div class="section-eyebrow">Our selection</div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px">
+    <div>
+      <h2 class="section-title">Hand-picked bouquets</h2>
+      <p class="section-sub">All bouquets are made fresh on the day. Choose style and price — we find the most beautiful flowers for you.</p>
+    </div>
+  </div>
+  <div class="buket-grid">
+    <div class="buket-card" onclick="openFlow('private','lys')">
+      <div class="buket-card-badge">Popular</div>
+      <div class="buket-card-img">🌸🌷🤍</div>
+      <div class="buket-card-body">
+        <div class="buket-card-name">Light & romantic</div>
+        <div class="buket-card-sub">Soft tones, pastel colours and feminine flowers. Perfect for birthdays and celebrations.</div>
+        <div class="buket-card-price">From DKK 300</div>
+      </div>
+    </div>
+    <div class="buket-card" onclick="openFlow('private','farve')">
+      <div class="buket-card-img">🌻🌺🌼</div>
+      <div class="buket-card-body">
+        <div class="buket-card-name">Colourful & vibrant</div>
+        <div class="buket-card-sub">Bold colours, contrasts and lots of energy. Brings joy at first glance.</div>
+        <div class="buket-card-price">From DKK 300</div>
+      </div>
+    </div>
+    <div class="buket-card" onclick="openFlow('private','klassisk')">
+      <div class="buket-card-img">🥀🌿🤎</div>
+      <div class="buket-card-body">
+        <div class="buket-card-name">Classic & elegant</div>
+        <div class="buket-card-sub">Timeless and refined expression. Deep and dark tones for those who appreciate the classic.</div>
+        <div class="buket-card-price">From DKK 300</div>
+      </div>
+    </div>
+    <div class="buket-card" onclick="openFlow('private','baare')">
+      <div class="buket-card-img">🤍🌿🕊️</div>
+      <div class="buket-card-body">
+        <div class="buket-card-name">Funeral bouquet</div>
+        <div class="buket-card-sub">White and pure flowers in a calm and respectful expression. A final farewell.</div>
+        <div class="buket-card-price">From DKK 400</div>
+      </div>
+    </div>
+    <div class="buket-card" onclick="openFlow('private','florist')">
+      <div class="buket-card-img">🌱🎨✨</div>
+      <div class="buket-card-body">
+        <div class="buket-card-name">Florist's choice</div>
+        <div class="buket-card-sub">Leave it all to our florists. They create something unique with today’s most beautiful flowers.</div>
+        <div class="buket-card-price">From DKK 300</div>
+      </div>
+    </div>
+    <div class="buket-card" style="background:rgba(126,139,99,.06);border:1.5px dashed rgba(126,139,99,.3);cursor:default">
+      <div class="buket-card-img" style="font-size:40px;opacity:.4">＋</div>
+      <div class="buket-card-body">
+        <div class="buket-card-name" style="opacity:.4">More coming soon</div>
+        <div class="buket-card-sub" style="opacity:.3">We regularly update the selection with the season's best. Follow us on Instagram.</div>
+        <div class="buket-card-price" style="opacity:.3">@flowersdk</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── BUTIKKER ── -->
+<section class="section" id="butikker">
+  <div class="section-eyebrow">Find us</div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px">
+    <div>
+      <h2 class="section-title">Our stores</h2>
+      <p class="section-sub">Order online and pick up at the store that suits you best. Your bouquet will be ready at the agreed time.</p>
+    </div>
+  </div>
+  <div class="butikker-grid">
+    <div class="butik-card">
+      <div class="butik-name">Flowers Østerbrogade</div>
+      <div class="butik-addr">Østerbrogade 108, 2100 Copenhagen<br>Mon–Thu 08–18 · Fri 08–19 · Sat 08–18 · Sun 09–17</div>
+    </div>
+    <div class="butik-card">
+      <div class="butik-name">Flowers Amagerbrogade</div>
+      <div class="butik-addr">Amagerbrogade 63, 2300 Copenhagen<br>Mon–Thu 09–18 · Fri 09–19 · Sat 09–18 · Sun 09–17</div>
+    </div>
+    <div class="butik-card">
+      <div class="butik-name">Flowers Hellerup</div>
+      <div class="butik-addr">Strandvej 147, 2900 Hellerup<br>Mon–Thu 09–18 · Fri 09–19 · Sat 09–18 · Sun 09–17</div>
+    </div>
+    <div class="butik-card">
+      <div class="butik-name">Flowers Christianshavn</div>
+      <div class="butik-addr">Torvegade 66, 1400 Copenhagen K<br>Mon–Thu 09–18 · Fri 09–19 · Sat 09–18 · Sun 09–17</div>
+    </div>
+    <div class="butik-card">
+      <div class="butik-name">Flowers Vanløse</div>
+      <div class="butik-addr">Jernbane Allé 46, 2720 Vanløse<br>Mon–Thu 09–18 · Fri 09–19 · Sat 09–18 · Sun 09–17</div>
+    </div>
+    <div class="butik-card">
+      <div class="butik-name">Magasin Flowers Metro</div>
+      <div class="butik-addr">Kongens Nytorv 13, 1095 Copenhagen<br>Mon–fre 07–20 · Sat–Sun 08–20</div>
+    </div>
+    <div class="butik-card">
+      <div class="butik-name">Magasin Flowers Bremerholm</div>
+      <div class="butik-addr">Kongens Nytorv 13, 1095 Copenhagen<br>Mon–Sun 10–20</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── ERHVERV ── -->
+<section id="erhverv-section" style="background:var(--card)">
+  <div class="erhverv-inner">
+    <div class="erhverv-text">
+      <div class="section-eyebrow">For businesses</div>
+      <h2 class="section-title">Fresh flowers for<br>the office — every week</h2>
+      <p class="section-sub">A fixed agreement that ensures fresh flowers at your address. We deliver, you enjoy.</p>
+      <div class="erhverv-features">
+        <div class="ef-item">
+          <div class="ef-icon">🚚</div>
+          <div class="ef-text">
+            <h4>Fixed delivery</h4>
+            <p>We deliver on the weekdays you choose — always on time.</p>
+          </div>
+        </div>
+        <div class="ef-item">
+          <div class="ef-icon">💳</div>
+          <div class="ef-text">
+            <h4>Employee discount via the app</h4>
+            <p>Your employees get a unique discount code for the Flowers app and can shop at a preferential price in all our stores.</p>
+          </div>
+        </div>
+        <div class="ef-item">
+          <div class="ef-icon">📊</div>
+          <div class="ef-text">
+            <h4>Automatic billing</h4>
+            <p>Payment is charged automatically at each delivery. Receipt sent directly to your email — ready for accounting.</p>
+          </div>
+        </div>
+        <div class="ef-item">
+          <div class="ef-icon">🌿</div>
+          <div class="ef-text">
+            <h4>Always the season's best</h4>
+            <p>Our florists select the most beautiful and freshest flowers for your agreement.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="erhverv-form-box" id="erhverv-form-box">
+        <div style="font-family:var(--serif);font-size:22px;color:var(--text);margin-bottom:6px">Start business agreement</div>
+        <div style="font-size:13px;color:rgba(12,10,9,.4);margin-bottom:24px">Fill in the form — we will contact you within 24 hours</div>
+        <label class="ef-label">CVR number</label>
+        <div style="display:flex;gap:10px;align-items:flex-end">
+          <input class="ef-input" id="erh-cvr" placeholder="12345678" maxlength="8" type="number" oninput="if(this.value.length===8)webLookupCVR()" style="flex:1">
+          <button onclick="webLookupCVR()" style="padding:11px 16px;background:var(--green);color:white;border:none;border-radius:10px;font-family:var(--sans);font-size:11px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;flex-shrink:0;margin-bottom:1px">Search</button>
+        </div>
+        <div id="web-cvr-result" style="font-size:12px;color:var(--green);margin-top:4px;margin-bottom:4px;min-height:16px"></div>
+        <div style="font-size:10px;color:rgba(12,10,9,.3);margin-bottom:12px">Prototype test: try 10150817 or 10239680</div>
+        <label class="ef-label">Company name</label>
+        <input class="ef-input" id="erh-company" placeholder="Auto-filled from CVR">
+        <label class="ef-label">Delivery address</label>
+        <input class="ef-input" id="erh-addr-auto" placeholder="Auto-filled from CVR">
+        <label class="ef-label">Contact person</label>
+        <input class="ef-input" id="erh-name" placeholder="Name">
+        <div class="ef-row" style="margin-top:0">
+          <div>
+            <label class="ef-label">Phone</label>
+            <input class="ef-input" id="erh-phone" placeholder="20 12 34 56">
+          </div>
+          <div>
+            <label class="ef-label">Email</label>
+            <input class="ef-input" id="erh-email" placeholder="navn@firma.dk">
+          </div>
+        </div>
+
+        <label class="ef-label">Delivery days</label>
+        <div class="ef-days">
+          <div class="ef-day" onclick="this.classList.toggle('on')">Mon</div>
+          <div class="ef-day" onclick="this.classList.toggle('on')">Tue</div>
+          <div class="ef-day" onclick="this.classList.toggle('on')">Wed</div>
+          <div class="ef-day" onclick="this.classList.toggle('on')">Thu</div>
+          <div class="ef-day" onclick="this.classList.toggle('on')">Fri</div>
+        </div>
+        <div class="ef-row">
+          <div>
+            <label class="ef-label">Bouquet size</label>
+            <select class="ef-select" id="erh-size">
+              <option value="300">Standard — DKK 300</option>
+              <option value="500">Premium — DKK 500</option>
+              <option value="750">Large — DKK 750</option>
+            </select>
+          </div>
+          <div>
+            <label class="ef-label">Quantity per delivery</label>
+            <select class="ef-select" id="erh-qty">
+              <option>1 bouquet</option>
+              <option>2 bouquets</option>
+              <option>3 bouquets</option>
+              <option>4+ bouquets</option>
+            </select>
+          </div>
+        </div>
+        <label class="ef-label">Number of employees (for staff discount)</label>
+        <input class="ef-input" id="erh-emp" type="number" placeholder="fx 25">
+        <div style="height:1px;background:var(--line);margin:24px 0"></div>
+        <div style="font-family:var(--serif);font-size:16px;color:var(--text);margin-bottom:4px">Payment card</div>
+        <div style="font-size:12px;color:rgba(12,10,9,.4);margin-bottom:16px;line-height:1.6">We charge payment automatically at each delivery and send a receipt to your email.</div>
+        <label class="ef-label">Card number</label>
+        <input class="ef-input" id="erh-card" placeholder="1234 5678 9012 3456" maxlength="19" oninput="fmtCard(this)">
+        <div class="ef-row">
+          <div>
+            <label class="ef-label">Expiry date</label>
+            <input class="ef-input" id="erh-expiry" placeholder="MM / ÅÅ" maxlength="7" oninput="fmtExpiry(this)">
+          </div>
+          <div>
+            <label class="ef-label">CVV</label>
+            <input class="ef-input" id="erh-cvv" placeholder="123" maxlength="4" type="password">
+          </div>
+        </div>
+        <label class="ef-label">Name on card</label>
+        <input class="ef-input" id="erh-cardname" placeholder="ANDERS ANDERSEN">
+        <div style="display:flex;align-items:center;gap:8px;margin-top:14px;font-size:11px;color:rgba(12,10,9,.35)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Card details are encrypted and stored securely
+        </div>
+        <div style="background:rgba(126,139,99,.08);border-radius:10px;padding:12px 14px;margin-top:16px;font-size:12px;color:rgba(12,10,9,.5);line-height:1.6">
+          📍 <strong>Delivery zone:</strong> We deliver throughout Copenhagen and Hellerup, Gentofte, Charlottenlund, Klampenborg, Ordrup, Skovshoved and Vangede. From Vanløse we also deliver to Brønshøj, Husum, Herlev and Rødovre. Contact us if you are unsure whether your address is within the zone.
+        </div>
+        <button class="erhverv-submit" onclick="submitBusiness()">Place order</button>
+      </div>
+
+      <!-- Bekræftelse (vist efter indsendelse) -->
+      <div id="erhverv-confirm" style="display:none">
+
+        <!-- Tak-besked -->
+        <div style="text-align:center;padding:40px 20px 28px;border-bottom:1px solid var(--line);margin-bottom:28px">
+          <div style="font-size:48px;margin-bottom:16px">🌿</div>
+          <div style="font-family:var(--serif);font-size:28px;color:var(--text);margin-bottom:12px">Thank you for your order!</div>
+          <div style="font-size:14px;color:rgba(12,10,9,.5);line-height:1.7" id="erh-confirm-text"></div>
+        </div>
+
+        <!-- Aftaleopsummering -->
+        <div style="margin-bottom:28px">
+          <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(12,10,9,.3);margin-bottom:12px">Your agreement</div>
+          <div id="erh-summary-rows" style="background:var(--card);border-radius:14px;padding:16px"></div>
+        </div>
+
+        <!-- Staff discountkode -->
+        <div class="rabat-box">
+          <h3>Staff discount code for your team</h3>
+          <p>Share this code with your employees. They download the Flowers app, go to Offers → Employee discount and enter the code to get a staff discount at all our stores.</p>
+          <div class="rabat-code" id="erh-rabat-code" onclick="copyWebCode(this)" style="cursor:pointer" title="Klik for at kopiere">FLW-XXXX</div>
+          <div style="font-size:11px;color:rgba(12,10,9,.35);text-align:center;margin-bottom:16px">Click the code to copy</div>
+          <div class="rabat-steps">
+            <div class="rabat-step"><div class="rabat-step-num">1</div>Employee downloads the Flowers app</div>
+            <div class="rabat-step"><div class="rabat-step-num">2</div>Creates profile with work email</div>
+            <div class="rabat-step"><div class="rabat-step-num">3</div>Offers → Employee discount → enter code</div>
+            <div class="rabat-step"><div class="rabat-step-num">4</div>Shops at preferential price in all Flowers stores</div>
+          </div>
+        </div>
+
+        <!-- Monage agreement -->
+        <div style="margin-top:32px">
+          <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(12,10,9,.3);margin-bottom:12px">Monage agreement</div>
+          <div style="background:var(--card);border-radius:14px;overflow:hidden">
+            <div onclick="webEditField('days')" style="display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line);cursor:pointer">
+              <span style="font-size:14px">Delivery days</span>
+              <div style="display:flex;align-items:center;gap:8px"><span id="web-edit-days" style="font-size:13px;color:rgba(12,10,9,.4)"></span><span style="color:var(--green);font-size:18px">›</span></div>
+            </div>
+            <div onclick="webEditField('size')" style="display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line);cursor:pointer">
+              <span style="font-size:14px">Bouquet size</span>
+              <div style="display:flex;align-items:center;gap:8px"><span id="web-edit-size" style="font-size:13px;color:rgba(12,10,9,.4)"></span><span style="color:var(--green);font-size:18px">›</span></div>
+            </div>
+            <div onclick="webEditField('qty')" style="display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line);cursor:pointer">
+              <span style="font-size:14px">Bouquets per delivery</span>
+              <div style="display:flex;align-items:center;gap:8px"><span id="web-edit-qty" style="font-size:13px;color:rgba(12,10,9,.4)"></span><span style="color:var(--green);font-size:18px">›</span></div>
+            </div>
+            <div onclick="webEditField('emp')" style="display:flex;justify-content:space-between;align-items:center;padding:16px 20px;cursor:pointer">
+              <span style="font-size:14px">Max employees with discount</span>
+              <div style="display:flex;align-items:center;gap:8px"><span id="web-edit-emp" style="font-size:13px;color:rgba(12,10,9,.4)"></span><span style="color:var(--green);font-size:18px">›</span></div>
+            </div>
+          </div>
+          <div style="text-align:center;margin-top:16px;font-size:13px;color:rgba(12,10,9,.35)">
+            Changes take effect at the next delivery ·
+            <span onclick="openWebOpsig()" style="color:rgba(180,50,50,.6);cursor:pointer;text-decoration:underline">Cancel agreement</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- OPSIG AFTALE OVERLAY -->
+      <div id="web-opsig-overlay" style="display:none;position:fixed;inset:0;background:rgba(12,10,9,.5);z-index:500;align-items:flex-end;justify-content:center">
+        <div style="background:var(--bg);width:100%;max-width:560px;border-radius:24px 24px 0 0;padding:36px 36px 50px">
+          <div id="web-opsig-step1">
+            <div style="font-family:var(--serif);font-size:22px;margin-bottom:8px">Do you want to cancel the agreement?</div>
+            <div style="font-size:14px;color:rgba(12,10,9,.45);line-height:1.6;margin-bottom:20px">We're sorry to see you go. Please tell us why — it helps us improve.</div>
+            <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(12,10,9,.35);margin-bottom:10px">Reason for cancellation</div>
+            <div id="web-opsig-reasons" style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px">
+              <div class="web-opsig-reason" onclick="selectWebOpsigReason(this)">💰 Too expensive</div>
+              <div class="web-opsig-reason" onclick="selectWebOpsigReason(this)">📦 We have enough flowers</div>
+              <div class="web-opsig-reason" onclick="selectWebOpsigReason(this)">🏢 We are moving office or closing</div>
+              <div class="web-opsig-reason" onclick="selectWebOpsigReason(this)">😕 Not satisfied with quality</div>
+              <div class="web-opsig-reason" onclick="selectWebOpsigReason(this)">🔄 We are trying another supplier</div>
+              <div class="web-opsig-reason" onclick="selectWebOpsigReason(this)">💬 Other</div>
+            </div>
+            <textarea id="web-opsig-comment" style="width:100%;border:1px solid rgba(12,10,9,.12);border-radius:12px;padding:14px;font-family:var(--sans);font-size:13px;color:var(--text);background:transparent;outline:none;resize:none;height:80px;margin-bottom:16px" placeholder="What could we have done better?"></textarea>
+            <button onclick="confirmWebOpsig()" style="width:100%;padding:16px;background:rgba(180,50,50,.8);color:white;border:none;border-radius:12px;font-family:var(--sans);font-size:12px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;margin-bottom:10px">Confirm cancellation</button>
+            <button onclick="closeWebOpsig()" style="width:100%;padding:14px;background:transparent;border:1.5px solid rgba(12,10,9,.12);border-radius:12px;font-family:var(--sans);font-size:12px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;color:var(--text);opacity:.5">Go back — keep the agreement</button>
+          </div>
+          <div id="web-opsig-step2" style="display:none;text-align:center;padding:20px 0">
+            <div style="font-size:48px;margin-bottom:16px">🌸</div>
+            <div style="font-family:var(--serif);font-size:26px;margin-bottom:12px">Thank you for being with us</div>
+            <div style="font-size:14px;color:rgba(12,10,9,.45);line-height:1.7;margin-bottom:28px">Your agreement is now cancelled with 30 days notice. We hope to see you again — you are always welcome back at Flowers.</div>
+            <button onclick="closeWebOpsigFinal()" style="padding:16px 40px;background:var(--green);color:white;border:none;border-radius:100px;font-family:var(--sans);font-size:12px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── OM OS ── -->
+<section class="section" id="om">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center">
+    <div>
+      <div class="section-eyebrow">Our philosophy</div>
+      <h2 class="section-title">Flowers are more<br>than decoration</h2>
+      <p class="section-sub" style="margin-bottom:24px">We believe fresh flowers make everyday life more beautiful. Since 2018 we have delivered hand-picked bouquets to thousands of customers in Copenhagen.</p>
+      <p class="section-sub">All our flowers are carefully selected by our florists — with a focus on quality, season and sustainability. We work closely with local suppliers to ensure your flowers are always the freshest possible.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+      <div onclick="scrollToSection('butikker')" style="background:var(--card);border-radius:16px;padding:28px;text-align:center;cursor:pointer;transition:transform .2s;border:2px solid transparent" onmouseover="this.style.borderColor='var(--green)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='transparent';this.style.transform='none'">
+        <div style="font-family:var(--serif);font-size:40px;color:var(--green);margin-bottom:8px">7</div>
+        <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;opacity:.4">Largees</div>
+        <div style="font-size:10px;color:var(--green);margin-top:6px;opacity:.7">See all ›</div>
+      </div>
+      <div onclick="openAppLargeeModal()" style="background:var(--card);border-radius:16px;padding:28px;text-align:center;cursor:pointer;transition:transform .2s;border:2px solid transparent" onmouseover="this.style.borderColor='var(--green)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='transparent';this.style.transform='none'">
+        <div style="font-family:var(--serif);font-size:40px;color:var(--green);margin-bottom:8px">1.2k</div>
+        <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;opacity:.4">App customers</div>
+        <div style="font-size:10px;color:var(--green);margin-top:6px;opacity:.7">Download the app ›</div>
+      </div>
+      <div onclick="window.open('https://www.trustpilot.com/review/flowers.dk','_blank')" style="background:var(--card);border-radius:16px;padding:28px;text-align:center;cursor:pointer;transition:transform .2s;border:2px solid transparent" onmouseover="this.style.borderColor='var(--green)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='transparent';this.style.transform='none'">
+        <div style="font-family:var(--serif);font-size:40px;color:var(--green);margin-bottom:8px">4.9</div>
+        <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;opacity:.4">Average rating</div>
+        <div style="font-size:10px;color:var(--green);margin-top:6px;opacity:.7">Read reviews ›</div>
+      </div>
+      <div style="background:var(--card);border-radius:16px;padding:28px;text-align:center">
+        <div style="font-family:var(--serif);font-size:40px;color:var(--green);margin-bottom:8px">2018</div>
+        <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;opacity:.4">Founded</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Flowers</div>
+      <p class="footer-sub">Fresh flowers for everyday life. Seven stores in Copenhagen — and an app that gives you the benefits.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Largees</h4>
+      <a>Østerbrogade</a>
+      <a>Amagerbrogade</a>
+      <a>Hellerup</a>
+      <a>Christianshavn</a>
+      <a>Vanløse</a>
+      <a>Magasin Metro</a>
+      <a>Magasin Bremerholm</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a onclick="openFlow('private')">Order bouquet</a>
+      <a onclick="document.getElementById('erhverv-section').scrollIntoView({behavior:'smooth'})">Businesssaftale</a>
+      <a>Staff discount</a>
+      <a>Gift card</a>
+    </div>
+    <div class="footer-col">
+      <h4>Flowers</h4>
+      <a>About us</a>
+      <a>Instagram</a>
+      <a>Contact</a>
+      <a>Privacy policy</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Flowers ApS · CVR 38 77 66 55</p>
+    <p>Designed with ❤ in Copenhagen</p>
+  </div>
+</footer>
+
+
+<!-- ── PRIVAT BESTIL FLOW ── -->
+<div class="flow-overlay" id="flow-private" onclick="if(event.target===this)closeFlow('private')">
+  <div class="flow-box">
+    <div class="flow-header">
+      <h2 id="flow-private-title">Order bouquet</h2>
+      <button class="flow-close" onclick="closeFlow('private')">✕</button>
+    </div>
+    <div class="flow-step-indicator">
+      <div class="flow-step-dot done" id="pdot-0"></div>
+      <div class="flow-step-dot" id="pdot-1"></div>
+      <div class="flow-step-dot" id="pdot-2"></div>
+      <div class="flow-step-dot" id="pdot-3"></div>
+      <div class="flow-step-dot" id="pdot-4"></div>
+    </div>
+    <div id="pstep-0">
+      <span class="fl">Choose style</span>
+      <div class="style-grid" id="private-style-grid">
+        <div class="style-opt" onclick="selectPersonaleStyle('lys',this)">
+          <div class="style-opt-emoji">🌸🌷🤍</div>
+          <div class="style-opt-name">Light & romantic</div>
+          <div class="style-opt-desc">Soft tones, pastels</div>
+        </div>
+        <div class="style-opt" onclick="selectPersonaleStyle('farve',this)">
+          <div class="style-opt-emoji">🌻🌺🌼</div>
+          <div class="style-opt-name">Colourful & vibrant</div>
+          <div class="style-opt-desc">Bold colours, energy</div>
+        </div>
+        <div class="style-opt" onclick="selectPersonaleStyle('klassisk',this)">
+          <div class="style-opt-emoji">🥀🌿🤎</div>
+          <div class="style-opt-name">Classic & elegant</div>
+          <div class="style-opt-desc">Timeless, refined</div>
+        </div>
+        <div class="style-opt" onclick="selectPersonaleStyle('baare',this)">
+          <div class="style-opt-emoji">🤍🌿🕊️</div>
+          <div class="style-opt-name">Funeral bouquet</div>
+          <div class="style-opt-desc">White & peaceful</div>
+        </div>
+        <div class="style-opt" onclick="selectPersonaleStyle('florist',this)" style="grid-column:span 2">
+          <div class="style-opt-emoji">🌱🎨✨</div>
+          <div class="style-opt-name">Florist's choice</div>
+          <div class="style-opt-desc">We create something unique with today's finest</div>
+        </div>
+      </div>
+      <button class="flow-btn" onclick="privateNext(1)">Continue</button>
+    </div>
+    <div id="pstep-1" style="display:none">
+      <span class="fl">Choose budget</span>
+      <div class="price-grid" id="private-price-grid">
+        <div class="price-opt" onclick="selectPersonalePrice(300,this)"><div class="price-opt-amt">300</div><div class="price-opt-kr">DKK</div></div>
+        <div class="price-opt" onclick="selectPersonalePrice(400,this)"><div class="price-opt-amt">400</div><div class="price-opt-kr">DKK</div></div>
+        <div class="price-opt" onclick="selectPersonalePrice(500,this)"><div class="price-opt-amt">500</div><div class="price-opt-kr">DKK</div></div>
+        <div class="price-opt" onclick="selectPersonalePrice(600,this)"><div class="price-opt-amt">600</div><div class="price-opt-kr">DKK</div></div>
+      </div>
+      <button class="flow-btn" onclick="privateNext(2)">Continue</button>
+      <button class="flow-btn-back" onclick="privateBack(0)">‹ Back</button>
+    </div>
+    <div id="pstep-2" style="display:none">
+      <span class="fl">Choose store</span>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:8px" id="private-store-list">
+        <div class="butik-card" style="padding:16px" onclick="selectPersonaleLargee('oe','Flowers Østerbrogade',this)">
+          <div class="butik-name" style="font-size:14px">Flowers Østerbrogade</div>
+          <div class="butik-addr" style="font-size:11px">Østerbrogade 108 · Mon–Thu 08–18 · Fri 08–19 · Sat 08–18 · Sun 09–17</div>
+        </div>
+        <div class="butik-card" style="padding:16px" onclick="selectPersonaleLargee('am','Flowers Amagerbrogade',this)">
+          <div class="butik-name" style="font-size:14px">Flowers Amagerbrogade</div>
+          <div class="butik-addr" style="font-size:11px">Amagerbrogade 63 · Mon–Thu 09–18 · Fri 09–19 · Sat 09–18 · Sun 09–17</div>
+        </div>
+        <div class="butik-card" style="padding:16px" onclick="selectPersonaleLargee('he','Flowers Hellerup',this)">
+          <div class="butik-name" style="font-size:14px">Flowers Hellerup</div>
+          <div class="butik-addr" style="font-size:11px">Strandvej 147 · Mon–Thu 09–18 · Fri 09–19 · Sat 09–18 · Sun 09–17</div>
+        </div>
+        <div class="butik-card" style="padding:16px" onclick="selectPersonaleLargee('ch','Flowers Christianshavn',this)">
+          <div class="butik-name" style="font-size:14px">Flowers Christianshavn</div>
+          <div class="butik-addr" style="font-size:11px">Thuvegade 66 · Mon–Thu 09–18 · Fri 09–19 · Sat 09–18 · Sun 09–17</div>
+        </div>
+        <div class="butik-card" style="padding:16px" onclick="selectPersonaleLargee('van','Flowers Vanløse',this)">
+          <div class="butik-name" style="font-size:14px">Flowers Vanløse</div>
+          <div class="butik-addr" style="font-size:11px">Jernbane Allé 46 · Mon–Thu 09–18 · Fri 09–19 · Sat 09–18 · Sun 09–17</div>
+        </div>
+        <div class="butik-card" style="padding:16px" onclick="selectPersonaleLargee('metro','Magasin Flowers Metro',this)">
+          <div class="butik-name" style="font-size:14px">Magasin Flowers Metro</div>
+          <div class="butik-addr" style="font-size:11px">Kongens Nytorv 13 · Mon–fre 07–20 · Sat–Sun 08–20</div>
+        </div>
+        <div class="butik-card" style="padding:16px" onclick="selectPersonaleLargee('brem','Magasin Flowers Bremerholm',this)">
+          <div class="butik-name" style="font-size:14px">Magasin Flowers Bremerholm</div>
+          <div class="butik-addr" style="font-size:11px">Kongens Nytorv 13 · Mon–Sun 10–20</div>
+        </div>
+      </div>
+      <button class="flow-btn" onclick="privateNext(3)">Continue</button>
+      <button class="flow-btn-back" onclick="privateBack(1)">‹ Back</button>
+    </div>
+    <div id="pstep-3" style="display:none">
+      <span class="fl">When will you pick up?</span>
+      <div class="date-chips" id="private-date-chips">
+        <div class="date-chip" onclick="selectDate(this,'Today')">Today</div>
+        <div class="date-chip" onclick="selectDate(this,'Tomorrow')">Tomorrow</div>
+        <div class="date-chip" onclick="selectDate(this,'Thursday 17/4')">Thursday 17/4</div>
+        <div class="date-chip" onclick="selectDate(this,'Friday 18/4')">Friday 18/4</div>
+        <div class="date-chip" onclick="selectDate(this,'Saturday 19/4')">Saturday 19/4</div>
+      </div>
+      <span class="fl" style="margin-top:20px">Time slot</span>
+      <div class="time-chips" id="private-time-chips">
+        <div class="time-chip" onclick="selectTime(this,'10:00–11:00')">10–11</div>
+        <div class="time-chip" onclick="selectTime(this,'11:00–12:00')">11–12</div>
+        <div class="time-chip" onclick="selectTime(this,'12:00–13:00')">12–13</div>
+        <div class="time-chip" onclick="selectTime(this,'13:00–14:00')">13–14</div>
+        <div class="time-chip" onclick="selectTime(this,'14:00–15:00')">14–15</div>
+        <div class="time-chip" onclick="selectTime(this,'15:00–16:00')">15–16</div>
+        <div class="time-chip" onclick="selectTime(this,'16:00–17:00')">16–17</div>
+      </div>
+      <span class="fl" style="margin-top:20px">Name</span>
+      <input class="fi" id="p-name" placeholder="Your name">
+      <span class="fl">Phone</span>
+      <input class="fi" id="p-phone" placeholder="20 12 34 56">
+      <span class="fl">Message to florist (optional)</span>
+      <input class="fi" id="p-note" placeholder="e.g. 'for my mum’s 60th birthday'">
+      <button class="flow-btn" onclick="privateNext(4)">Go to summary</button>
+      <button class="flow-btn-back" onclick="privateBack(2)">‹ Back</button>
+    </div>
+    <div id="pstep-4" style="display:none">
+      <div class="flow-summary" id="private-summary"></div>
+      <div style="background:rgba(126,139,99,.08);border-radius:12px;padding:14px 16px;font-size:12px;color:var(--text);opacity:.6;line-height:1.6;margin-bottom:4px">
+        💳 Payment is completed securely online at the time of ordering — card or MobilePay. You pick up your bouquet at the store at the chosen time.
+      </div>
+      <button class="flow-btn" onclick="privateConfirm()">Confirm order</button>
+      <button class="flow-btn-back" onclick="privateBack(3)">‹ Back</button>
+    </div>
+    <div id="pstep-5" style="display:none">
+      <div class="confirm-box">
+        <div class="confirm-icon">✅</div>
+        <div class="confirm-title">Order received</div>
+        <div class="confirm-sub" id="private-confirm-text">Your bouquet is reserved. We'll send an SMS confirmation to your number.</div>
+        <button class="flow-btn" onclick="closeFlow('private')" style="max-width:240px;margin:0 auto">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+// ── STATE ──
+var ws = {
+  style: null, price: null, store: null, storeName: null,
+  date: null, time: null
+};
+
+// ── FLOW HELPERS ──
+function openFlow(type, style){
+  if(type==='private'){
+    document.getElementById('flow-private').classList.add('open');
+    document.body.style.overflow='hidden';
+    resetPersonaleFlow();
+    if(style) preSelectStyle(style);
+  }
+}
+function closeFlow(type){
+  document.getElementById('flow-'+type).classList.remove('open');
+  document.body.style.overflow='';
+}
+function openAppLargeeModal(){
+  document.getElementById('app-store-modal').style.display='flex';
+  document.body.style.overflow='hidden';
+}
+function closeAppLargeeModal(){
+  document.getElementById('app-store-modal').style.display='none';
+  document.body.style.overflow='';
+}
+function openOrderPicker(){
+  document.getElementById('order-picker').style.display='flex';
+  document.body.style.overflow='hidden';
+}
+function closeOrderPicker(){
+  document.getElementById('order-picker').style.display='none';
+  document.body.style.overflow='';
+}
+function scrollToSection(id){
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+
+// ── PRIVATE FLOW ──
+function resetPersonaleFlow(){
+  ws={style:null,price:null,store:null,storeName:null,date:null,time:null};
+  for(var i=0;i<=5;i++){
+    var s=document.getElementById('pstep-'+i);
+    if(s) s.style.display=i===0?'block':'none';
+  }
+  for(var j=0;j<=4;j++){
+    var d=document.getElementById('pdot-'+j);
+    if(d){d.classList.remove('done');if(j===0)d.classList.add('done');}
+  }
+  document.querySelectorAll('.style-opt').forEach(function(e){e.classList.remove('selected')});
+  document.querySelectorAll('.price-opt').forEach(function(e){e.classList.remove('selected')});
+  document.querySelectorAll('.butik-card').forEach(function(e){e.classList.remove('selected')});
+  document.querySelectorAll('.date-chip').forEach(function(e){e.classList.remove('selected')});
+  document.querySelectorAll('.time-chip').forEach(function(e){e.classList.remove('selected')});
+  var pn=document.getElementById('p-name');if(pn)pn.value='';
+  var pp=document.getElementById('p-phone');if(pp)pp.value='';
+  var pno=document.getElementById('p-note');if(pno)pno.value='';
+}
+function preSelectStyle(style){
+  var map={lys:0,farve:1,klassisk:2,baare:3,florist:4};
+  var opts=document.querySelectorAll('.style-opt');
+  var idx=map[style];
+  if(opts[idx]){opts[idx].classList.add('selected');ws.style=style;}
+}
+function privateNext(step){
+  if(step===1&&!ws.style){alert('Please choose a style');return;}
+  if(step===2&&!ws.price){alert('Please choose a budget');return;}
+  if(step===3&&!ws.store){alert('Please choose a store');return;}
+  if(step===4){
+    if(!ws.date){alert('Please choose a date');return;}
+    if(!ws.time){alert('Please choose a time');return;}
+    if(!document.getElementById('p-name').value.trim()){alert('Please enter your name');return;}
+    buildPersonaleSummary();
+  }
+  showPersonaleStep(step);
+}
+function privateBack(step){showPersonaleStep(step);}
+function showPersonaleStep(step){
+  for(var i=0;i<=5;i++){
+    var s=document.getElementById('pstep-'+i);
+    if(s) s.style.display=i===step?'block':'none';
+  }
+  for(var j=0;j<=4;j++){
+    var d=document.getElementById('pdot-'+j);
+    if(d) d.classList.toggle('done', j<=step);
+  }
+  document.getElementById('flow-private').querySelector('.flow-box').scrollTop=0;
+}
+function selectPersonaleStyle(style, el){
+  ws.style=style;
+  document.querySelectorAll('.style-opt').forEach(function(e){e.classList.remove('selected')});
+  el.classList.add('selected');
+}
+function selectPersonalePrice(price, el){
+  ws.price=price;
+  document.querySelectorAll('.price-opt').forEach(function(e){e.classList.remove('selected')});
+  el.classList.add('selected');
+}
+function selectPersonaleLargee(id, name, el){
+  ws.store=id; ws.storeName=name;
+  document.querySelectorAll('#private-store-list .butik-card').forEach(function(e){e.classList.remove('selected')});
+  el.classList.add('selected');
+}
+function selectDate(el, val){
+  ws.date=val;
+  document.querySelectorAll('.date-chip').forEach(function(e){e.classList.remove('selected')});
+  el.classList.add('selected');
+}
+function selectTime(el, val){
+  ws.time=val;
+  document.querySelectorAll('.time-chip').forEach(function(e){e.classList.remove('selected')});
+  el.classList.add('selected');
+}
+var styleNames={lys:'Light & romantic',farve:'Colourful & vibrant',klassisk:'Classic & elegant',baare:'Funeral bouquet',florist:'Florist choice'};
+function buildPersonaleSummary(){
+  var name=document.getElementById('p-name').value.trim();
+  var phone=document.getElementById('p-phone').value.trim();
+  var note=document.getElementById('p-note').value.trim();
+  var html='';
+  html+='<div class="fs-row"><span class="fs-label">Style</span><span class="fs-val">'+(styleNames[ws.style]||ws.style)+'</span></div>';
+  html+='<div class="fs-row"><span class="fs-label">Budget</span><span class="fs-val">'+ws.price+',- kr.</span></div>';
+  html+='<div class="fs-row"><span class="fs-label">Store</span><span class="fs-val">'+ws.storeName+'</span></div>';
+  html+='<div class="fs-row"><span class="fs-label">Pickup</span><span class="fs-val">'+ws.date+' · '+ws.time+'</span></div>';
+  html+='<div class="fs-row"><span class="fs-label">Name</span><span class="fs-val">'+name+'</span></div>';
+  if(phone) html+='<div class="fs-row"><span class="fs-label">Phone</span><span class="fs-val">'+phone+'</span></div>';
+  if(note) html+='<div class="fs-row"><span class="fs-label">Besked</span><span class="fs-val">'+note+'</span></div>';
+  html+='<div class="fs-row"><span class="fs-label">Payment</span><span class="fs-val">'+ws.price+',- DKK at pickup</span></div>';
+  document.getElementById('private-summary').innerHTML=html;
+}
+function privateConfirm(){
+  var name=document.getElementById('p-name').value.trim();
+  document.getElementById('private-confirm-text').innerHTML=
+    'Thank you '+name+'! Your bouquet is reserved for pickup on <strong>'+ws.date+'</strong> at <strong>'+ws.time+'</strong> from <strong>'+ws.storeName+'</strong>.';
+  showPersonaleStep(5);
+  // In real system: push to admin order queue
+}
+
+// ── ERHVERV FORM ──
+function fmtCard(el){
+  var v=el.value.replace(/\D/g,'').substring(0,16);
+  el.value=v.replace(/(.{4})/g,'$1 ').trim();
+}
+function fmtExpiry(el){
+  var v=el.value.replace(/\D/g,'').substring(0,4);
+  if(v.length>=3) v=v.substring(0,2)+' / '+v.substring(2);
+  el.value=v;
+}
+// ── CVR LOOKUP (web) ──
+var webCvrDemoData={
+  '10150817':{name:'Magasin du Nord A/S',address:'Kongens Nytorv 13',zipcode:'1095',city:'Copenhagen K'},
+  '20220813':{name:'Novo Nordisk A/S',address:'Novo Allé 1',zipcode:'2880',city:'Bagsværd'},
+  '55938011':{name:'A.P. Møller - Mærsk A/S',address:'Esplanaden 50',zipcode:'1098',city:'Copenhagen K'},
+  '10239680':{name:'Carlsberg A/S',address:'J.C. Jacobsens Gade 1',zipcode:'1799',city:'Copenhagen V'},
+};
+function webLookupCVR(){
+  var cvr=(document.getElementById('erh-cvr').value||'').replace(/\D/g,'');
+  var res=document.getElementById('web-cvr-result');
+  if(cvr.length!==8){if(res)res.innerHTML='<span style="color:#c03c3c">CVR must be 8 digits</span>';return;}
+  if(res)res.textContent='Searching…';
+  if(webCvrDemoData[cvr]){
+    setTimeout(function(){fillWebCVR(webCvrDemoData[cvr]);},400);
+    return;
+  }
+  var url='https://corsproxy.io/?'+encodeURIComponent('https://cvrapi.dk/api?vat='+cvr+'&country=dk');
+  fetch(url).then(function(r){return r.json();}).then(function(d){
+    if(d.error){if(res)res.innerHTML='<span style="color:#c03c3c">CVR not found</span>';return;}
+    fillWebCVR(d);
+  }).catch(function(){
+    if(res)res.innerHTML='<span style="color:rgba(12,10,9,.4)">Opslag fejlede — udfyld manuelt</span>';
+  });
+}
+function fillWebCVR(d){
+  var res=document.getElementById('web-cvr-result');
+  var nameEl=document.getElementById('erh-company');
+  if(nameEl&&d.name) nameEl.value=d.name;
+  var addrEl=document.getElementById('erh-addr-auto');
+  if(addrEl){
+    var addr=d.address||'';
+    if(d.zipcode) addr+=' '+d.zipcode;
+    if(d.city) addr+=' '+d.city;
+    addrEl.value=addr.trim();
+  }
+  if(res)res.innerHTML='<span style="color:var(--green)">✓ '+d.name+(d.city?', '+d.city:'')+'</span>';
+}
+
+// ── FIRST DELIVERY DATE (web) ──
+function calcWebFirstDelivery(days){
+  var dn={Mon:1,Tue:2,Wed:3,Thu:4,Fri:5};
+  var today=new Date();
+  for(var i=1;i<=14;i++){
+    var d=new Date(today);
+    d.setDate(today.getDate()+i);
+    var dow=d.getDay();
+    for(var j=0;j<days.length;j++){
+      if(dn[days[j].trim()]===dow){
+        return d.toLocaleDateString('da-DK',{weekday:'long',day:'numeric',month:'long'});
+      }
+    }
+  }
+  return null;
+}
+
+// ── SUBMIT ERHVERV ──
+function submitBusiness(){
+  var company=document.getElementById('erh-company').value.trim();
+  var name=document.getElementById('erh-name').value.trim();
+  var email=document.getElementById('erh-email').value.trim();
+  var addr=document.getElementById('erh-addr-auto')?document.getElementById('erh-addr-auto').value.trim():'';
+  var card=document.getElementById('erh-card').value.replace(/\s/g,'');
+  var expiry=document.getElementById('erh-expiry').value;
+  var cvv=document.getElementById('erh-cvv').value;
+  var emp=document.getElementById('erh-emp').value||'—';
+  var size=document.getElementById('erh-size');
+  var sizeVal=size?size.options[size.selectedIndex].text:'Standard';
+  var qty=document.getElementById('erh-qty');
+  var qtyVal=qty?qty.options[qty.selectedIndex].text:'1 bouquet';
+  if(!company){alert('Please enter company name');return;}
+  if(!name){alert('Please enter contact person');return;}
+  if(!email){alert('Please enter email');return;}
+  if(card.length<15){alert('Please enter a valid card number');return;}
+  if(!expiry){alert('Please enter expiry date');return;}
+  if(!cvv){alert('Please enter CVV');return;}
+  // Delivery days
+  var days=[];
+  document.querySelectorAll('.ef-day.on').forEach(function(d){days.push(d.textContent)});
+  var daysStr=days.length?days.join(', '):'Not selected';
+  // First delivery date
+  var firstDate=calcWebFirstDelivery(days);
+  // Generate code
+  var code='FLW-'+company.replace(/[^A-Za-z0-9]/g,'').substring(0,3).toUpperCase()+Math.floor(10+Math.random()*90);
+  // Summary rows
+  var rows=[
+    ['Company',company],
+    ['Delivery address',addr||'—'],
+    ['Contact person',name],
+    ['Email for receipts',email],
+    ['Delivery days',daysStr],
+    ['Bouquet size',sizeVal],
+    ['Quantity per delivery',qtyVal],
+    ['Max employees with discount',emp],
+  ];
+  var html=rows.map(function(r){
+    return '<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(12,10,9,.07);font-size:13px">'
+      +'<span style="color:rgba(12,10,9,.45)">'+r[0]+'</span>'
+      +'<span style="font-weight:500;text-align:right;max-width:55%">'+r[1]+'</span>'
+      +'</div>';
+  }).join('');
+  document.getElementById('erh-summary-rows').innerHTML=html;
+  // Confirm text
+  var confirmTxt='We look forward to starting deliveries and ensuring fresh flowers for <strong>'+company+'</strong>.';
+  if(firstDate) confirmTxt+=' <strong>First delivery: '+firstDate+'.</strong>';
+  confirmTxt+=' A receipt will be sent to <strong>'+email+'</strong> after each delivery — ready for accounting.';
+  document.getElementById('erh-confirm-text').innerHTML=confirmTxt;
+  // Rabat code
+  document.getElementById('erh-rabat-code').textContent=code;
+  // Populate management fields
+  document.getElementById('web-edit-days').textContent=daysStr;
+  document.getElementById('web-edit-size').textContent=sizeVal;
+  document.getElementById('web-edit-qty').textContent=qtyVal;
+  document.getElementById('web-edit-emp').textContent=emp+' employees';
+  // Save to localLargeage
+  try{localLargeage.setItem('flw_web_b2b',JSON.stringify({company:company,code:code,days:daysStr,size:sizeVal,qty:qtyVal,emp:emp,email:email}));}catch(e){}
+  // Show confirmation
+  document.getElementById('erhverv-form-box').style.display='none';
+  document.getElementById('erhverv-confirm').style.display='block';
+  document.getElementById('erhverv-confirm').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// ── COPY CODE ──
+function copyWebCode(el){
+  var code=el.textContent;
+  if(navigator.clipboard) navigator.clipboard.writeText(code);
+  var orig=el.style.background;
+  el.style.background='rgba(126,139,99,.2)';
+  setTimeout(function(){el.style.background=orig;},600);
+}
+
+// ── EDIT FIELDS ──
+function webEditField(field){
+  var map={days:'web-edit-days',size:'web-edit-size',qty:'web-edit-qty',emp:'web-edit-emp'};
+  var labels={days:'Delivery days (fx Mon, Wed, Fri)',size:'Bouquet size',qty:'Bouquets per delivery',emp:'Max employees with discount'};
+  var el=document.getElementById(map[field]);
+  var v=prompt(labels[field]+':',el?el.textContent:'');
+  if(v&&el) el.textContent=v;
+}
+
+// ── OPSIG AFTALE (web) ──
+var webOpsigReason='';
+function openWebOpsig(){
+  document.getElementById('web-opsig-overlay').style.display='flex';
+  document.getElementById('web-opsig-step1').style.display='block';
+  document.getElementById('web-opsig-step2').style.display='none';
+  document.querySelectorAll('.web-opsig-reason').forEach(function(r){r.classList.remove('selected')});
+  document.getElementById('web-opsig-comment').value='';
+  webOpsigReason='';
+}
+function closeWebOpsig(){document.getElementById('web-opsig-overlay').style.display='none';}
+function selectWebOpsigReason(el){
+  document.querySelectorAll('.web-opsig-reason').forEach(function(r){r.classList.remove('selected')});
+  el.classList.add('selected');
+  webOpsigReason=el.textContent;
+}
+function confirmWebOpsig(){
+  try{localLargeage.removeItem('flw_web_b2b');}catch(e){}
+  document.getElementById('web-opsig-step1').style.display='none';
+  document.getElementById('web-opsig-step2').style.display='block';
+}
+function closeWebOpsigFinal(){
+  document.getElementById('web-opsig-overlay').style.display='none';
+  document.getElementById('erhverv-confirm').style.display='none';
+  document.getElementById('erhverv-form-box').style.display='block';
+}
+
+// ── RESTORE AGREEMENT FROM LOCALSTORAGE ──
+(function(){
+  try{
+    var saved=localLargeage.getItem('flw_web_b2b');
+    if(saved){
+      var d=JSON.parse(saved);
+      document.getElementById('erh-company').value=d.company||'';
+      document.getElementById('erh-confirm-text').innerHTML='Your agreement is active. <strong>'+d.company+'</strong> — '+d.days+'.';
+      document.getElementById('erh-rabat-code').textContent=d.code||'';
+      if(document.getElementById('web-edit-days'))document.getElementById('web-edit-days').textContent=d.days||'';
+      if(document.getElementById('web-edit-size'))document.getElementById('web-edit-size').textContent=d.size||'';
+      if(document.getElementById('web-edit-qty'))document.getElementById('web-edit-qty').textContent=d.qty||'';
+      if(document.getElementById('web-edit-emp'))document.getElementById('web-edit-emp').textContent=(d.emp||'')+(d.emp?' employees':'');
+      document.getElementById('erhverv-form-box').style.display='none';
+      document.getElementById('erhverv-confirm').style.display='block';
+    }
+  }catch(e){}
+})();
+</script>
+<!-- ── BESTIL PICKER ── -->
+<div id="order-picker" style="display:none;position:fixed;inset:0;background:rgba(12,10,9,.45);z-index:1000;align-items:center;justify-content:center;padding:24px" onclick="if(event.target===this)closeOrderPicker()">
+  <div style="background:var(--bg);border-radius:24px;padding:40px 36px;max-width:480px;width:100%">
+    <div style="font-family:var(--serif);font-size:26px;margin-bottom:8px;text-align:center">Who are you ordering for?</div>
+    <div style="font-size:14px;color:rgba(12,10,9,.45);text-align:center;margin-bottom:32px">Choose what suits you best</div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div onclick="closeOrderPicker();openFlow('private')" style="display:flex;align-items:center;gap:20px;padding:20px 24px;background:var(--card);border-radius:16px;cursor:pointer;border:2px solid transparent;transition:all .2s" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='transparent'">
+        <div style="font-size:36px">🌸</div>
+        <div>
+          <div style="font-size:16px;font-weight:500;margin-bottom:4px">Personal</div>
+          <div style="font-size:13px;color:rgba(12,10,9,.45);line-height:1.5">Order a bouquet for pickup at the store — for yourself or someone you care about</div>
+        </div>
+        <div style="margin-left:auto;color:var(--green);font-size:22px;flex-shrink:0">›</div>
+      </div>
+      <div onclick="closeOrderPicker();document.getElementById('erhverv-section').scrollIntoView({behavior:'smooth'})" style="display:flex;align-items:center;gap:20px;padding:20px 24px;background:var(--card);border-radius:16px;cursor:pointer;border:2px solid transparent;transition:all .2s" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='transparent'">
+        <div style="font-size:36px">🏢</div>
+        <div>
+          <div style="font-size:16px;font-weight:500;margin-bottom:4px">Business</div>
+          <div style="font-size:13px;color:rgba(12,10,9,.45);line-height:1.5">Fixed weekly delivery to the office — with staff discount for the whole team</div>
+        </div>
+        <div style="margin-left:auto;color:var(--green);font-size:22px;flex-shrink:0">›</div>
+      </div>
+    </div>
+    <button onclick="closeOrderPicker()" style="width:100%;margin-top:20px;padding:14px;background:transparent;border:1.5px solid rgba(12,10,9,.12);border-radius:12px;font-family:var(--sans);font-size:12px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;color:var(--text);opacity:.5">Cancel</button>
+  </div>
+</div>
+
+<!-- ── APP STORE MODAL ── -->
+<div id="app-store-modal" style="display:none;position:fixed;inset:0;background:rgba(12,10,9,.45);z-index:1000;align-items:center;justify-content:center;padding:24px" onclick="if(event.target===this)closeAppLargeeModal()">
+  <div style="background:var(--bg);border-radius:24px;padding:40px 36px;max-width:420px;width:100%;text-align:center">
+    <div style="font-size:48px;margin-bottom:16px">🌸</div>
+    <div style="font-family:var(--serif);font-size:26px;margin-bottom:8px">Download the Flowers app</div>
+    <div style="font-size:14px;color:rgba(12,10,9,.45);line-height:1.7;margin-bottom:32px">Earn stamps, see your rewards and use your staff discount directly from your phone.</div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <a href="https://apps.apple.com" target="_blank" style="display:flex;align-items:center;gap:16px;padding:16px 20px;background:var(--text);color:white;border-radius:14px;text-decoration:none;transition:opacity .2s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        <div style="text-align:left">
+          <div style="font-size:10px;letter-spacing:.06em;text-transform:uppercase;opacity:.6">Download on the</div>
+          <div style="font-size:17px;font-weight:500;font-family:var(--sans)">App Largee</div>
+        </div>
+      </a>
+      <a href="https://play.google.com" target="_blank" style="display:flex;align-items:center;gap:16px;padding:16px 20px;background:var(--text);color:white;border-radius:14px;text-decoration:none;transition:opacity .2s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M3 20.5v-17c0-.83.94-1.3 1.6-.8l14 8.5c.6.37.6 1.23 0 1.6l-14 8.5c-.66.5-1.6.03-1.6-.8z"/></svg>
+        <div style="text-align:left">
+          <div style="font-size:10px;letter-spacing:.06em;text-transform:uppercase;opacity:.6">Get it on</div>
+          <div style="font-size:17px;font-weight:500;font-family:var(--sans)">Google Play</div>
+        </div>
+      </a>
+    </div>
+    <button onclick="closeAppLargeeModal()" style="width:100%;margin-top:16px;padding:14px;background:transparent;border:1.5px solid rgba(12,10,9,.12);border-radius:12px;font-family:var(--sans);font-size:12px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;color:var(--text);opacity:.5">Close</button>
+  </div>
+</div>
+
+</body>
+</html>
